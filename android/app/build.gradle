@@ -5,7 +5,6 @@ import java.time.temporal.ChronoUnit
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 33
     ndkVersion '25.2.9519653'
     buildToolsVersion '33.0.2'
     namespace 'su.xash.SamplePackageName'
@@ -22,7 +21,8 @@ android {
         versionName '0.99'
         versionCode getBuildNum()
         minSdkVersion 16
-        targetSdk 33
+        targetSdk 34
+        compileSdk 34
 
         externalNativeBuild {
             cmake {
