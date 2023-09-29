@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit
 apply plugin: 'com.android.application'
 
 android {
-    ndkVersion '25.2.9519653'
+    ndkVersion '26.0.10792818'
     namespace 'su.xash.SamplePackageName'
 
     packagingOptions {
