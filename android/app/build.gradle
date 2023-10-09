@@ -19,7 +19,7 @@ android {
         applicationIdSuffix 'SamplePackageName'
         versionName '0.99'
         versionCode getBuildNum()
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdk 34
         compileSdk 34
 
