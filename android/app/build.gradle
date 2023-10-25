@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit
 apply plugin: 'com.android.application'
 
 android {
-    ndkVersion '26.0.10792818'
+    ndkVersion '26.1.10909125'
     namespace 'su.xash.SamplePackageName'
 
     packagingOptions {
@@ -47,8 +47,8 @@ android {
             minifyEnabled false
             shrinkResources false
             debuggable true
-            applicationIdSuffix '.debug'
-            versionNameSuffix ' (DEBUG)'
+            applicationIdSuffix '.test'
+            versionNameSuffix ' (Test)'
         }
         release {
             minifyEnabled false
