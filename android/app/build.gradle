@@ -5,75 +5,75 @@ import java.time.temporal.ChronoUnit
 apply plugin: 'com.android.application'
 
 android {
-    ndkVersion '26.1.10909125'
-    namespace 'su.xash.SamplePackageName'
+	ndkVersion '26.1.10909125'
+	namespace 'su.xash.SamplePackageName'
 
-    packagingOptions {
-        jniLibs {
-            useLegacyPackaging true
-        }
-    }
+	packagingOptions {
+		jniLibs {
+			useLegacyPackaging true
+		}
+	}
 
-    defaultConfig {
-        applicationId 'su.xash'
-        applicationIdSuffix 'SamplePackageName'
-        versionName '0.99'
-        versionCode getBuildNum()
-        minSdkVersion 21
-        targetSdk 34
-        compileSdk 34
+	defaultConfig {
+		applicationId 'su.xash'
+		applicationIdSuffix 'SamplePackageName'
+		versionName '0.99'
+		versionCode getBuildNum()
+		minSdkVersion 21
+		targetSdk 34
+		compileSdk 34
 
-        externalNativeBuild {
-            cmake {
-                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            }
-        }
-    }
+		externalNativeBuild {
+			cmake {
+				abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+			}
+		}
+	}
 
-    externalNativeBuild {
-        cmake {
-            version '3.22.1+'
-            path file('../../CMakeLists.txt')
-        }
-    }
+	externalNativeBuild {
+		cmake {
+			version '3.22.1+'
+			path file('../../CMakeLists.txt')
+		}
+	}
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
 
-    buildTypes {
-        debug {
-            minifyEnabled false
-            shrinkResources false
-            debuggable true
-            applicationIdSuffix '.test'
-            versionNameSuffix ' (Test)'
-        }
-        release {
-            minifyEnabled false
-            shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+	buildTypes {
+		debug {
+			minifyEnabled false
+			shrinkResources false
+			debuggable true
+			applicationIdSuffix '.test'
+			versionNameSuffix ' (Test)'
+		}
+		release {
+			minifyEnabled false
+			shrinkResources false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
 
-    lint {
-        abortOnError false
-    }
+	lint {
+		abortOnError false
+	}
 
-    aaptOptions {
-        noCompress ['']
-    }
+	aaptOptions {
+		noCompress ['']
+	}
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+	implementation 'androidx.appcompat:appcompat:1.6.1'
 }
 
 static def getBuildNum() {
-    LocalDateTime now = LocalDateTime.now()
-    LocalDateTime releaseDate = LocalDateTime.of(2018, Month.DECEMBER, 7, 0, 0, 0)
-    int qBuildNum = releaseDate.until(now, ChronoUnit.DAYS)
-    int minuteOfDay = now.getHour() * 60 + now.getMinute()
-    return qBuildNum * 10000 + minuteOfDay
+	LocalDateTime now = LocalDateTime.now()
+	LocalDateTime releaseDate = LocalDateTime.of(2018, Month.DECEMBER, 7, 0, 0, 0)
+	int qBuildNum = releaseDate.until(now, ChronoUnit.DAYS)
+	int minuteOfDay = now.getHour() * 60 + now.getMinute()
+	return qBuildNum * 10000 + minuteOfDay
 }
